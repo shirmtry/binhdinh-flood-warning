@@ -134,5 +134,27 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
+class VercelPathMiddleware:
+    """Vercel rewrite '/(.*)' -> '/api/index/$1' đưa prefix /api/index vào PATH_INFO.
+
+    Middleware khôi phục đường dẫn gốc để Flask định tuyến đúng
+    (hoạt động cả local lẫn Vercel, không side-effect khi import).
+    """
+
+    def __init__(self, wsgi_app):
+        self.wsgi_app = wsgi_app
+
+    def __call__(self, environ, start_response):
+        path = environ.get('PATH_INFO', '')
+        prefix = '/api/index'
+        if path == prefix or path.startswith(prefix + '/'):
+            rest = path[len(prefix):]
+            environ['PATH_INFO'] = rest if rest else '/'
+        return self.wsgi_app(environ, start_response)
+
+
+app.wsgi_app = VercelPathMiddleware(app.wsgi_app)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
