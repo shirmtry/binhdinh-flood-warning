@@ -54,7 +54,7 @@ vercel.json          # rewrites → /api/index
 
 ## Deploy
 
-Link deploy (Vercel production): xem `deploy_url.txt`.
+Link deploy (Vercel production): **https://binhdinh-flood-warning.vercel.app** (xem thêm `deploy_url.txt`).
 
 ```bash
 vercel --prod --yes
