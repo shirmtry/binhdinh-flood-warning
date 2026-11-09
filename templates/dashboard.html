@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Bảng mực nước – Cảnh báo lũ sông Kôn 2026{% endblock %}
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>Bảng theo dõi mực nước sông Kôn</h1>
+  <p class="badge-update">Cập nhật: 09/11/2026 · <span id="data-note">Dữ liệu mô phỏng – cập nhật 09/11/2026</span></p>
+  <a class="btn btn-zalo" href="https://zalo.me/0396241674" target="_blank" rel="noopener">Nhận cảnh báo qua Zalo</a>
+</section>
+
+<section class="legend card">
+  <h2>Ngưỡng cảnh báo</h2>
+  <div class="legend-row">
+    <span class="chip chip-normal">Bình thường</span>
+    <span class="chip chip-1">Cấp 1 – Vàng: chuẩn bị phòng tránh</span>
+    <span class="chip chip-2">Cấp 2 – Cam: nguy cơ ngập, sẵn sàng sơ tán</span>
+    <span class="chip chip-3">Cấp 3 – Đỏ: nguy hiểm, sơ tán ngay</span>
+  </div>
+</section>
+
+<section id="station-cards" class="grid grid-3" aria-live="polite">
+  <div class="card"><p>Đang tải dữ liệu trạm...</p></div>
+</section>
+
+<section class="card">
+  <h2>Biểu đồ mực nước 7 ngày (03/11 – 09/11/2026)</h2>
+  <div class="chart-wrap"><canvas id="levelChart" height="120"></canvas></div>
+  <p class="small-note" id="chart-note">Dữ liệu mô phỏng – cập nhật 09/11/2026. Chọn trạm để xem chi tiết ngưỡng.</p>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard.js') }}" defer></script>
+{% endblock %}

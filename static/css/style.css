@@ -1,0 +1,111 @@
+/* Cảnh báo lũ sông Kôn – Bình Định 2026 · HTK 0396241674 · Cập nhật 09/11/2026 */
+:root {
+  --blue: #0b5fa5;
+  --blue-dark: #083d6b;
+  --bg: #f2f6fa;
+  --text: #1d2b38;
+  --normal: #1a936f;
+  --lv1: #e6b800;
+  --lv2: #e8710a;
+  --lv3: #d7263d;
+  --zalo: #0068ff;
+  --radius: 12px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+main.container { flex: 1; padding-top: 24px; padding-bottom: 40px; }
+a { color: var(--blue); }
+
+/* Navbar */
+.navbar { background: var(--blue-dark); color: #fff; position: sticky; top: 0; z-index: 10; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; }
+.brand { color: #fff; font-weight: 700; font-size: 1.1rem; text-decoration: none; }
+.brand-sub { display: block; font-size: .75rem; font-weight: 400; opacity: .85; }
+.nav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.nav-links a { color: #dbe9f6; text-decoration: none; font-size: .95rem; }
+.nav-links a:hover { color: #fff; text-decoration: underline; }
+
+/* Buttons */
+.btn { display: inline-block; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: .95rem; border: none; cursor: pointer; }
+.btn-contact { background: var(--lv2); color: #fff !important; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-zalo { background: var(--zalo); color: #fff; }
+.btn:hover { filter: brightness(1.1); }
+
+/* Sections */
+.hero { padding: 28px 0 8px; }
+.hero h1 { font-size: 1.7rem; color: var(--blue-dark); margin-bottom: 8px; }
+.lead { margin: 12px 0 18px; max-width: 900px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 14px 0; }
+.page-head { padding: 16px 0; }
+.page-head h1 { color: var(--blue-dark); font-size: 1.5rem; margin-bottom: 6px; }
+.badge-update { display: inline-block; background: #fff3cd; color: #7a5b00; padding: 4px 10px; border-radius: 6px; font-size: .85rem; font-weight: 600; margin: 6px 0; }
+
+.grid { display: grid; gap: 16px; margin: 16px 0; }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.card { background: #fff; border-radius: var(--radius); padding: 18px; box-shadow: 0 1px 4px rgba(13,42,68,.08); margin-bottom: 16px; }
+.card h2 { color: var(--blue-dark); font-size: 1.15rem; margin-bottom: 10px; }
+.card h3 { color: var(--blue-dark); font-size: 1.05rem; margin-bottom: 8px; }
+.context ul { padding-left: 20px; }
+.context p { margin-bottom: 10px; }
+.small-note { font-size: .82rem; color: #5b6b7a; margin-top: 8px; }
+
+/* Legend chips */
+.legend-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.chip { padding: 5px 12px; border-radius: 999px; font-size: .82rem; font-weight: 600; color: #fff; }
+.chip-normal { background: var(--normal); }
+.chip-1 { background: var(--lv1); color: #4a3b00; }
+.chip-2 { background: var(--lv2); }
+.chip-3 { background: var(--lv3); }
+
+/* Station cards */
+.station-card { border-top: 5px solid var(--normal); margin-bottom: 0; }
+.station-card.lv1 { border-top-color: var(--lv1); }
+.station-card.lv2 { border-top-color: var(--lv2); }
+.station-card.lv3 { border-top-color: var(--lv3); }
+.station-level { font-size: 1.9rem; font-weight: 800; color: var(--blue-dark); }
+.station-status { font-weight: 700; }
+.status-normal { color: var(--normal); }
+.status-1 { color: #a38200; }
+.status-2 { color: var(--lv2); }
+.status-3 { color: var(--lv3); }
+.thresholds { font-size: .82rem; color: #5b6b7a; margin-top: 6px; }
+.trend-rising::after { content: " ↑ đang lên"; color: var(--lv3); }
+.trend-falling::after { content: " ↓ đang xuống"; color: var(--normal); }
+.trend-steady::after { content: " → ổn định"; color: #5b6b7a; }
+
+/* Chart */
+.chart-wrap { position: relative; width: 100%; min-height: 280px; }
+
+/* Contact / About */
+.contact-list { list-style: none; margin: 8px 0 12px; }
+.contact-list li { margin-bottom: 6px; }
+.not-found { text-align: center; padding: 48px 20px; margin-top: 24px; }
+.not-found h1 { color: var(--lv3); margin-bottom: 12px; }
+.not-found .hero-actions { justify-content: center; }
+
+/* Footer */
+.footer { background: var(--blue-dark); color: #cfe0ef; padding: 18px 0; font-size: .9rem; }
+.footer a { color: #9fd0ff; }
+.footer-note { font-size: .78rem; opacity: .8; margin-top: 4px; }
+
+/* Responsive: 375px and up */
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .nav-inner { flex-direction: column; align-items: flex-start; }
+  .nav-links { gap: 10px; }
+  .hero h1 { font-size: 1.35rem; }
+  .station-level { font-size: 1.6rem; }
+}
